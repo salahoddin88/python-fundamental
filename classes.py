@@ -4,12 +4,17 @@ class Home:
     def __init__(self):
         print('Random Song')
     
+    
     def LivingRoom(self):
         print('Living Room')
     #methods 
 
 
-class FirstFloor(Home):
+class FirstFloor:
+
+    def __init__(self):
+        print('Welcome Song')
+
     def Gym(self):
         print('Gym')
 
@@ -18,7 +23,14 @@ class FirstFloor(Home):
         print('Library')
 
 
-class GroundFloor(Home):
+
+class GroundFloor(FirstFloor, Home):
     #methods 
     def MasterBedRoom(self):
         print('Master Bed Room')
+
+
+groundFloor = GroundFloor()
+groundFloor.Gym()
+groundFloor.LivingRoom()
+groundFloor.MasterBedRoom()
