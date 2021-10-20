@@ -1,6 +1,5 @@
 
 class Customer:
-
     customers = [{'name':'Ashrith', 'card':'123', 'balance':0}, {'name':'Mukund', 'card':'456', 'balance':0}]
    
     def FetchCustomer(self, card):
@@ -9,18 +8,18 @@ class Customer:
             if customer['card'] == card:
                 return customer
         return False
-
+    
     def Register(self, name, card):
         """ Register New Customer """
         fetchCustomer = self.FetchCustomer(card)
         if fetchCustomer == False:
-            customer = {
+            customerData = {
                 'name' : name, 
                 'card' : card,
                 'balance' : 0
             }
-            self.customers.append(customer)
-            return customer
+            self.customers.append(customerData)
+            return customerData
         return False
 
     def FetchAllCustomer(self):
@@ -29,7 +28,6 @@ class Customer:
         for customer in self.customers:
             print(f"{customer['name']} - {customer['balance']}")
 
-
     def UpdateBalance(self, card, amount):
         """ Customers balance update (CREDIT AND DEBIT with actual values) """
         for key, customer in enumerate(self.customers):
@@ -37,7 +35,6 @@ class Customer:
                 self.customers[key]['balance'] = amount
                 return customer
         return False
-                
 
 
 class ATM(Customer):
@@ -61,7 +58,6 @@ class ATM(Customer):
         customer = super().FetchCustomer(self.card)
         return customer
 
-    
 
 
 # customer = Customer()
@@ -132,5 +128,4 @@ def main():
 
             else:
                 print('Invalid Customer')
-
 main()
